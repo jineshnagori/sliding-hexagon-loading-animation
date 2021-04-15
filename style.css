@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+*{
+    padding: 0;
+    margin: 0; 
+    font-family: 'Quicksand', sans-serif;
+}
+body{
+    background: #f8fafe;
+}
+.container{
+    position: absolute;
+    top: 50%;  left: 50%;
+    width: 500px;  height: 50px;   
+    border-bottom: 5px solid #2d2f5a;
+    animation: animateContainer 5s infinite linear;
+}
+.container .hexagon{
+    position: absolute;
+    bottom: 13px;  left: 0;
+    background: #920cc8;
+    width: 50px;  height: 30px;
+    animation: animateHexagon 5s infinite linear;
+}
+.container .hexagon::before,.container .hexagon::after{
+    content: '';
+    position: absolute;
+    top: 0;  left: 0;
+    width: 100%;   height: 100%;
+    background: #920cc8;
+}
+.container .hexagon::before{
+     transform: rotate(60deg);
+}
+.container .hexagon::after{
+     transform: rotate(-60deg);
+}
+@keyframes animateHexagon{
+    0%{
+        left: 0px;
+        transform: rotate(0);
+    }
+    50%{
+        left: calc(100% - 50px);
+        transform: rotate(720deg);
+    }
+    100%{
+        left: 0px;
+        transform: rotate(0);
+    }
+}
+@keyframes animateContainer{
+    0%{
+        transform:  translate(-50%,-50%)rotate(30deg);
+    }
+    50%{
+        transform:  translate(-50%,-50%)rotate(-30deg);
+    }
+    100%{
+        transform:  translate(-50%,-50%)rotate(30deg);
+    }
+}
